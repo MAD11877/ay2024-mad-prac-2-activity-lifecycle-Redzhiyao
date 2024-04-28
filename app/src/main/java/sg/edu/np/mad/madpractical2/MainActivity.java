@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvName = findViewById(R.id.tvName); // Make sure this ID exists in your XML
         TextView tvDescription = findViewById(R.id.tvDescription);
         Button btnFollow = findViewById(R.id.btnFollow);
-
+//check
         // Set the TextViews with the User's name, description, and default button message
         tvName.setText(user.name);
         tvDescription.setText(user.description);
