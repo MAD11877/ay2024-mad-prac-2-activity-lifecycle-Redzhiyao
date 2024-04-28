@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,21 @@ public class MainActivity extends AppCompatActivity {
         tvName.setText(user.name);
         tvDescription.setText(user.description);
         btnFollow.setText("Follow");
+
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "Button clicked");
+
+                // Toggle between "Follow" and "Unfollow"
+                if (btnFollow.getText().equals("Follow")) {
+                    btnFollow.setText("Unfollow");
+                    user.followed = true;
+                } else {
+                    btnFollow.setText("Follow");
+                    user.followed = false;
+                }
+            }
+        });
     }
-
-
 }
